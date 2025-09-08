@@ -1,0 +1,152 @@
+/* =========================
+   Variáveis globais
+========================= */
+:root{
+  --bs-primary: #2c3e50;
+  --nav-h: 64px;              /* altura inicial da navbar fixa */
+}
+
+/* =========================
+   Base
+========================= */
+html{ scroll-behavior: smooth; }
+body{ 
+  padding-top: var(--nav-h);   /* compensa navbar fixa */
+  background: #10253a;         /* mesma cor do início -> elimina faixa branca */
+  margin: 0;
+}
+
+/* =========================
+   Navbar / Botões
+========================= */
+.navbar{ 
+  transition: all .3s ease-in-out; 
+  border-bottom: 0 !important;   /* sem borda que cause faixa */
+  box-shadow: none !important;   /* sem sombra que cause linha clara */
+}
+.btn-primary{
+  border-radius: 30px;
+  padding: 12px 30px;
+}
+
+/* =========================
+   Cards (projetos)
+========================= */
+.card{
+  display: flex;
+  flex-direction: column;
+  transition: transform .3s;
+}
+.card-body{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.card img{
+  width: 100%;
+  height: 220px;        /* padroniza a altura das thumbs */
+  object-fit: cover;
+}
+.card:hover{ transform: translateY(-10px); }
+
+/* opcionais, se mantiver essas classes */
+.card-img-Calculadora,
+.card-img-DashboardRH{
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* =========================
+   Ícones e pequenos detalhes
+========================= */
+.text-secondary i{ font-size: 1.25rem; }
+.fa-code, .bi-code-slash{ color: #5370a7; }
+.fa-chart-line{ color: #513e96; }
+
+.social-icons a{ text-decoration: none; }
+.social-icons i{ transition: color .2s ease, transform .2s ease; }
+.social-icons .fa-github{ color:#fff; }
+.social-icons .fa-linkedin{ color:#0A66C2; }
+.social-icons .fa-whatsapp{ color:#25D366; }
+.social-icons a:hover i{ transform: translateY(-2px); }
+.social-icons a:hover .fa-github{ color:#BFBFBF; }
+.social-icons a:hover .fa-linkedin{ color:#004182; }
+.social-icons a:hover .fa-whatsapp{ color:#128C7E; }
+
+/* =========================
+   Seções (layout de página)
+========================= */
+/* cada seção ocupa a viewport (menos a navbar) */
+section{
+  min-height: calc(100vh - var(--nav-h));
+  display: flex;
+  align-items: center;
+  margin: 0;                 /* zera margens externas */
+  padding: 0;                /* sem padding no <section> */
+  scroll-margin-top: calc(var(--nav-h) + 4px); /* ancora perfeita */
+}
+
+/* respiro vai DENTRO do container de cada seção */
+section .container{ padding: 2rem 0; }
+
+/* INÍCIO: cor única e respiro maior */
+#inicio{
+  background-color: #10253a;   /* cor do fundo do início */
+  color: #fff;
+  margin-top: -1px;            /* elimina linha branca */
+  position: relative;
+}
+#inicio .container{ padding: 3rem 0; }
+
+/* garante que não cria faixa */
+#inicio::before{
+  content: "";
+  position: absolute;
+  top: -1px; left: 0; right: 0;
+  height: 1px;
+  background: #10253a;
+}
+
+/* evita que títulos empurrem o topo */
+section h1, section h2, section h3{ margin-top: 0; }
+
+/* imagens das seções não "estourarem" a altura */
+section img{
+  max-height: 70vh;
+  object-fit: cover;
+}
+
+/* =========================
+   Contato + Rodapé (um bloco)
+========================= */
+#contato{
+  background: #0f1216;        /* mantém escuro junto com o rodapé */
+  color: #fff;
+  display: block;
+}
+#contato .contato-wrapper{
+  min-height: calc(100vh - var(--nav-h));
+  display: grid;
+  grid-template-rows: auto 1fr auto;  /* título/form | espaço | rodapé */
+  gap: 1.5rem;
+  padding: 2rem 0;
+}
+#contato footer{
+  margin: 0;
+  border-top: 2px solid var(--bs-primary);
+}
+footer a:hover{
+  color: var(--bs-primary) !important;
+  transition: .3s;
+}
+
+/* =========================
+   Responsivo
+========================= */
+@media (max-width: 992px){
+  #contato .contato-wrapper{
+    grid-template-rows: auto auto auto; /* deixa fluir no mobile */
+  }
+}

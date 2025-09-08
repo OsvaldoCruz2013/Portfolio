@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Meu Portfólio</title>
+
+    <!-- Folha de estilos personalizada -->
+    <link href="styles/custom.css" rel="stylesheet">
+
+    <!-- Bootstrap via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Ícones do Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Favicon dinâmico -->
+    <link rel="shortcut icon" href="https://www.svgrepo.com/show/373594/favicon.svg" type="image/x-icon">
+
+    <!-- Meta tags para SEO -->
+    <meta name="author" content="Fulano da Silva">
+    <meta name="description" content="Portfólio de Fulano da Silva, desenvolvedor full-stack especializado em...">
+    <meta name="keywords" content="portfolio, desenvolvedor, front-end, projetos"> 
+    
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const nav = document.querySelector('.navbar');
+  const setNavH = () => {
+    if (!nav) return;
+    const h = nav.getBoundingClientRect().height; // altura real, com px fracionário
+    document.documentElement.style.setProperty('--nav-h', h + 'px');
+  };
+  setNavH();
+  window.addEventListener('resize', setNavH);
+});
+</script>
+
+
+</head>
+<body>
+    <!-- Navbar -->
+     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">Meu Portfólio</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+                <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+                <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
+                <li class="nav-item"><a class="nav-link" href="#habilidades">Habilidades</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#contato">Contato</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+    <!-- Seção Início -->
+     <section id="inicio" class="text-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <h1 class="display-4">Olá, eu sou Osvaldo Cruz</h1>
+                <p class="lead">Analista de Dados — ETL, BI e IA. Em formação no Instituto INFNET (Engenharia de Dados & IA).</p>
+                <a href="https://drive.google.com/file/d/1V0kBkddVdPBaXGh4NmwZdlkM2UgiamOc/view?usp=drive_link" class="btn btn-light btn-lg">Baixar Currículo</a>
+            </div>
+            <div class="col-lg-6 text-center">
+                <img src="img/MInha foto Atual.jpg" 
+                     class="img-fluid rounded-circle w-75" 
+                     alt="Foto de Perfil">
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Seção Sobre Mim -->
+ <!-- Sobre Mim -->
+    <section id="sobre" class="py-5">  
+        <div class="container">  
+            <div class="row align-items-center">  
+                <div class="col-lg-6">  
+                    <img src="img/Minha foto Atual.jpg" class="img-fluid rounded w-75" alt="Sobre Mim">  
+                </div>  
+                <div class="col-lg-6">  
+                    <h2>Sobre Mim</h2>  
+                    <p>Desde 2019 atuo como Analista de Dados, hoje na Kron Digital atendendo a Raízen. Meu trabalho é levar dados do bruto ao insight: pipelines de ETL robustos (SSIS/Apache Hop, Python e SQL), modelagem dimensional (Star Schema), e dashboards em Power BI/Qlik Cloud que reduzem ruído e aceleram decisões. Tenho vivência em Azure (Data Factory, Databricks), qualidade e governança de dados, e métricas operacionais como SLA, Aging, NPS, Filas, Bugs/Tasks e Capacity.
+                    Gosto de resolver problemas de ponta a ponta, do desenho do fluxo à entrega do KPI que o time realmente usa. Paralelamente, estou em formação no INFNET nas trilhas de Engenharia de Dados, Engenharia de Software e IA, estudando .NET e desenvolvimento web (HTML/CSS/JS) para unir analytics e engenharia e assim criar produtos de dados com mais performance e escala.</p>  
+                </div>  
+            </div>  
+        </div>  
+    </section> 
+
+    <!-- Seção Projetos -->
+     <!-- Projetos -->
+    <section id="projetos" class="py-5">  
+        <div class="container">  
+            <h2 class="text-center mb-5">Meus Projetos</h2>  
+            <div class="row g-4">  
+                <!-- Projeto 1 -->  
+                <div class="col-md-6 col-lg-4 d-flex">
+  <div class="card h-100 w-100">
+    <img src="img/CalculadoraCombustivel.png" class="card-img-top" alt="Projeto 1">
+
+    <div class="card-body">
+      <h5 class="card-title">Calculadora de Combustível</h5>
+      <p class="card-text">
+        Este é um aplicativo web simples e responsivo que ajuda motoristas a decidirem
+        qual combustível é mais vantajoso na hora de abastecer: álcool ou gasolina.
+        <br>Desenvolvido com:
+        <br>- HTML5
+        <br>- CSS3 (layout responsivo moderno)
+        <br>- JavaScript puro (sem frameworks)
+      </p>
+
+      <!-- bloco dos botões desce para a base do card -->
+      <div class="mt-auto d-flex gap-2 flex-wrap">
+        <a href="https://osvaldocruztech.com.br" target="_blank" class="btn btn-primary">Ver Projeto</a>
+        <a href="https://github.com/OsvaldoCruz2013/app-calculadora-combustivel?tab=readme-ov-file"
+           target="_blank" class="btn btn-dark">Github</a>
+      </div>
+    </div>
+  </div>
+</div>
+                <!-- Projeto 2 -->  
+                <div class="col-md-6 col-lg-4 d-flex">
+  <div class="card h-100 w-100">
+    <img src="img/DashboardBI.png" class="card-img-top" alt="Projeto 2">
+
+    <div class="card-body">
+      <h5 class="card-title">Dashboard RH</h5>
+      <p class="card-text">
+        Este é um dashboard em Power BI para RH. Acompanha indicadores de desempenho.
+        <br>Principais recursos:
+        <br>- Absenteísmo e turnover
+        <br>- Admissões e desligamentos
+        <br>- Indicadores de diversidade e equidade
+        <br>- Layout interativo e responsivo
+      </p>
+
+      <div class="mt-auto d-flex gap-2 flex-wrap">
+        <a href="#" class="btn btn-primary">Ver Projeto</a>
+        <a href="https://github.com/OsvaldoCruz2013/Projeto-Power-BI/tree/main" target="_blank" class="btn btn-dark">Github</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+                <!-- Projeto 3 --> 
+                <div class="col-md-6 col-lg-4">  
+                    <div class="card h-100">  
+                        <img src="img/PythonDados.png" class="card-img-top" alt="Projeto 3">  
+                        <div class="card-body">  
+                            <h5 class="card-title">Análise de Dados com Python</h5>  
+                            <p class="card-text">Desenvolvido com Python para análise de dados. <br>
+                                Utilizando bibliotecas como Pandas e Matplotlib.
+                            </p>  
+                             <div class="mt-auto d-flex gap-2 flex-wrap">
+        <a href="https://colab.research.google.com/drive/1lQFLtZz0UYR187giSZJnRc42tyu16XlM#scrollTo=VJBIUmjndUBl" class="btn btn-primary" target="_blank">Ver Projeto</a>
+        <a href="https://github.com/OsvaldoCruz2013/Imersao-dados-python-alura" target="_blank" class="btn btn-dark">Github</a>
+      </div>
+                        </div>  
+                    </div>  
+                </div>  
+
+                <!-- Projeto 4 -->
+                <div class="col-md-6 col-lg-4">  
+                    <div class="card h-100">  
+                        <img src="https://www.projetowebsite.com.br/template/images/criacao/criacao-de-site-padrao.jpg" class="card-img-top" alt="Projeto 4">  
+                        <div class="card-body">  
+                            <h5 class="card-title">Sistema de Gestão</h5>  
+                            <p class="card-text">Desenvolvido com React e Node.js para otimizar processos empresariais.</p>  
+                            <a href="#" class="btn btn-primary">Ver Detalhes</a>  
+                        </div>  
+                    </div>  
+                </div>
+            </div>  
+        </div>  
+    </section>  
+
+    <!-- Seção Habilidades -->
+ <!-- Habilidades -->
+    <section id="habilidades" class="bg-light py-5">  
+        <div class="container">  
+            <h2 class="text-center mb-5">Habilidades Técnicas</h2>  
+            <div class="row">  
+                <!-- Habilidade HTML -->  
+                <div class="col-md-4 mb-4">  
+                    <div class="text-center">  
+                        <i class="fab fa-html5 fa-3x text-danger mb-3"></i>  
+                        <h3>HTML5</h3> 
+                        <!-- Opcional -->
+                         <div class="progress">  
+                            <div class="progress-bar bg-danger" style="width: 90%">90%</div>  
+                        </div> 
+                    </div>  
+                </div>  
+                <!-- Habilidade CSS -->   
+                <div class="col-md-4 mb-4">  
+                    <div class="text-center">  
+                        <i class="fab fa-css3 fa-3x text-primary mb-3"></i>  
+                        <h3>CSS 3</h3> 
+                        <!-- Opcional -->
+                         <div class="progress">  
+                            <div class="progress-bar bg-primary" style="width: 60%">60%</div>  
+                        </div> 
+                    </div>  
+                </div> 
+                <!-- Habilidade JavaScript -->
+                <div class="col-md-4 mb-4">  
+                    <div class="text-center">  
+                        <i class="fab fa-js fa-3x text-warning mb-3"></i>  
+                        <h3>JavaScript</h3>  
+                        <!-- Opcional -->
+                         <div class="progress">  
+                            <div class="progress-bar bg-warning" style="width: 50%">50%</div>  
+                        </div>   
+                    </div>
+                </div>  
+                <!-- Habilidade Bootstrap -->
+                <div class="col-md-4 mb-4">  
+                    <div class="text-center">  
+                        <i class="fab fa-bootstrap fa-3x text-dark mb-3"></i>  
+                        <h3>Bootstrap</h3>  
+                        <!-- Opcional -->
+                         <div class="progress">  
+                            <div class="progress-bar bg-dark" style="width: 80%">80%</div>  
+                        </div> 
+                    </div>
+                </div>
+                <!-- Habilidade Power BI -->
+              
+                <div class="col-md-4 mb-4">  
+                    <div class="text-center">  
+                        <i class="fas fa-chart-bar fa-3x text-warning mb-3"></i>
+                        <h3>Power BI</h3>  
+                        <!-- Opcional -->
+                         <div class="progress">  
+                            <div class="progress-bar bg-warning" style="width: 100%">100%</div>  
+                        </div> 
+                    </div>
+                </div>
+                <!-- Habilidade MySQL -->
+                <div class="col-md-4 mb-4">  
+                    <div class="text-center">  
+                        <i class="fas fa-database fa-3x text-info mb-3"></i>
+                        <h3>MySQL</h3>
+                        <!-- Opcional -->
+                        <div class="progress">  
+                            <div class="progress-bar bg-info" style="width: 80%">80%</div>
+                        </div> 
+                    </div>
+                </div>
+                <!-- Habilidade PostgreSQL -->
+                <div class="col-md-4 mb-4">  
+                    <div class="text-center">  
+                        <i class="fas fa-database fa-3x text-info mb-3"></i>
+                        <h3>PostgreSQL</h3>
+                        <!-- Opcional -->
+                        <div class="progress">  
+                            <div class="progress-bar bg-info" style="width: 60%">60%</div>
+                        </div> 
+                    </div>
+                </div>
+                <!-- Habilidade Python -->
+                <div class="col-md-4 mb-4">  
+                    <div class="text-center">  
+                        <i class="fab fa-python fa-3x  mb-3" style="color: rgb(63,125,174);"></i>
+                        <h3>Python</h3>
+                        <!-- Opcional -->
+                         <div class="progress">  
+                            <div class="progress-bar" style="background-color: rgb(63,125,174); width: 70%">70%</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Habilidade Linux -->
+                <div class="col-md-4 mb-4">  
+                    <div class="text-center">  
+                       <i class="fa-solid fa-3x fa-database" style="color: #63E6BE;"></i>
+                        <h3>SQL</h3>
+                        <!-- Opcional -->
+                         <div class="progress">  
+                            <div class="progress-bar" style="background-color: #63E6BE; width: 90%">90%</div>
+                        </div> 
+                    </div>
+                </div>
+            </div>  
+    </section>  
+
+
+    <!-- Seção Contato -->
+   <section id="contato" class="bg-dark text-light">
+  <div class="container contato-wrapper">
+    <h2 class="text-center display-6 fw-bold mb-4">Entre em Contato</h2>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6">
+        <form action="https://formsubmit.co/osvaldobone16@gmail.com"
+              method="POST"
+              class="contact-form"
+              target="_blank"
+              novalidate>
+          <input type="text" name="_honey" style="display:none">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="Portfólio - Novo contato">
+          <input type="hidden" name="_next" id="nextUrl">
+
+          <div class="mb-3">
+            <input type="text" class="form-control" name="nome" placeholder="Seu Nome" required>
+          </div>
+          <div class="mb-3">
+            <input type="email" class="form-control" name="email" placeholder="Seu E-mail" required>
+          </div>
+          <div class="mb-3">
+            <textarea class="form-control" name="mensagem" rows="5" placeholder="Sua Mensagem" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary w-100 btn-lg">Enviar</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Rodapé agora faz parte da seção de contato -->
+    <footer class="pt-4">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <p class="text-secondary mb-1">
+            Desenvolvedor Osvaldo Cruz ☕ <i class="fa-solid fa-code"></i>
+            <i class="fa-solid fa-chart-line"></i>
+          </p>
+          <p class="text-secondary mb-0">&copy; 2025 Todos os direitos reservados.</p>
+        </div>
+        <div class="col-md-4">
+          <h5>Links Rápidos</h5>
+          <ul class="list-unstyled mb-0">
+            <li><a href="#inicio" class="link-info link-underline-opacity-25 link-underline-opacity-100-hover">Início</a></li>
+            <li><a href="#projetos" class="link-info link-underline-opacity-25 link-underline-opacity-100-hover">Projetos</a></li>
+            <li><a href="#contato" class="link-info link-underline-opacity-25 link-underline-opacity-100-hover">Contato</a></li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <h5>Redes Sociais</h5>
+          <div class="d-flex gap-3 social-icons">
+            <a href="https://github.com/OsvaldoCruz2013" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github fa-2x"></i></a>
+            <a href="https://www.linkedin.com/in/osvaldo-cruz1/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin fa-2x"></i></a>
+            <a href="https://wa.me/5519993974960" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp fa-2x"></i></a>
+          </div>
+          <hr>
+          <p class="mb-0">osvaldobone16@gmail.com</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+</section>
+
+
+    <!-- Scripts -->
+     <script src="scripts/custom.js" defer></script>
+
+</body>
+</html>
