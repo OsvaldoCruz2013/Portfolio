@@ -1,0 +1,26 @@
+# ===== KNIME =====
+# Ajuste o nome conforme a sua pasta/projeto de KNIME:
+CNAME/
+CNAME/
+**/CNAME-workspace/
+**/.CNAME*
+**/*CNAME*
+*.CNAME
+
+# ===== IDEs/editores =====
+.vscode/
+.idea/
+
+# ===== Sistemas =====
+.DS_Store
+Thumbs.db
+
+# ===== Node/JS (se um dia usar) =====
+node_modules/
+pnpm-lock.yaml
+yarn.lock
+
+# ===== Builds / artefatos =====
+dist/
+build/
+*.log
