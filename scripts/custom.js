@@ -1,4 +1,25 @@
+// Atualiza --nav-h de acordo com a altura real da navbar (evita “pulos”)
+function setNavHeightVar() {
+  const nav = document.querySelector('.navbar');
+  if (!nav) return;
+  const h = nav.getBoundingClientRect().height;
+  document.documentElement.style.setProperty('--nav-h', `${h}px`);
+}
+window.addEventListener('resize', setNavHeightVar);
+document.addEventListener('DOMContentLoaded', setNavHeightVar);
 
+// Fecha o menu ao clicar em um link (no mobile)
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('.navbar a.nav-link');
+  if (!link) return;
+  const navbarCollapse = document.querySelector('.navbar-collapse.show');
+  if (navbarCollapse) {
+    const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+    if (bsCollapse) bsCollapse.hide();
+  }
+});
+
+// Form de contato: define _next com o nome da pessoa para a página de obrigado
 (() => {
   const form = document.querySelector('#contato form');
   if (!form) return;

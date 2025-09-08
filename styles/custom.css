@@ -3,30 +3,76 @@
 ========================= */
 :root{
   --bs-primary: #2c3e50;
-  --nav-h: 64px;              /* altura inicial da navbar fixa */
+  --nav-h: 64px;        /* atualizado via JS conforme altura real da navbar */
+
+  /* Paleta para seções */
+  --c-navy-1:#10253a;   /* escuro */
+  --c-navy-2:#17334a;   /* azul médio */
+  --c-ice:#f5f7fb;      /* claro */
 }
 
 /* =========================
    Base
 ========================= */
 html{ scroll-behavior: smooth; }
-body{ 
-  padding-top: var(--nav-h);   /* compensa navbar fixa */
-  background: #10253a;         /* mesma cor do início -> elimina faixa branca */
+body{
   margin: 0;
+  padding-top: var(--nav-h);   /* compensa a navbar fixa */
+  background: var(--c-navy-1); /* cor de fundo padrão (seções sobrescrevem) */
+  color: #fff;
 }
 
 /* =========================
    Navbar / Botões
 ========================= */
-.navbar{ 
-  transition: all .3s ease-in-out; 
-  border-bottom: 0 !important;   /* sem borda que cause faixa */
-  box-shadow: none !important;   /* sem sombra que cause linha clara */
+.navbar{
+  transition: all .3s ease-in-out;
+  border-bottom: 0 !important;
+  box-shadow: none !important;
 }
+.navbar .nav-link{ padding: .5rem 1rem; }
+
 .btn-primary{
   border-radius: 30px;
   padding: 12px 30px;
+}
+
+/* =========================
+   Seções (layout)
+========================= */
+/* 100svh para mobile moderno + fallback 100vh */
+section{
+  min-height: calc(100svh - var(--nav-h));
+  min-height: calc(100vh - var(--nav-h));
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  scroll-margin-top: calc(var(--nav-h) + 4px); /* ancora perfeita */
+}
+section .container{ padding: 2rem 0; }
+
+/* Cores das seções */
+.section-dark  { background: var(--c-navy-1); color:#fff; }
+.section-mid   { background: var(--c-navy-2); color:#fff; }
+.section-light { background: var(--c-ice);    color:#0f1216; }
+
+/* Divisórias suaves entre blocos */
+.section-light{ position:relative; }
+.section-light::before{
+  content:""; position:absolute; left:0; right:0; top:-1px; height:1px;
+  background: rgba(0,0,0,.06);
+}
+.section-dark::before, .section-mid::before{
+  content:""; position:absolute; left:0; right:0; top:-1px; height:1px;
+  background: rgba(255,255,255,.06);
+}
+
+/* Imagens dentro das seções */
+section img{
+  max-height: 70svh;
+  max-height: 70vh;
+  object-fit: cover;
 }
 
 /* =========================
@@ -49,17 +95,11 @@ body{
 }
 .card:hover{ transform: translateY(-10px); }
 
-/* opcionais, se mantiver essas classes */
-.card-img-Calculadora,
-.card-img-DashboardRH{
-  width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto;
-}
+/* Em seções claras, cartões brancos */
+.section-light .card{ background:#fff; }
 
 /* =========================
-   Ícones e pequenos detalhes
+   Ícones / detalhes
 ========================= */
 .text-secondary i{ font-size: 1.25rem; }
 .fa-code, .bi-code-slash{ color: #5370a7; }
@@ -67,66 +107,22 @@ body{
 
 .social-icons a{ text-decoration: none; }
 .social-icons i{ transition: color .2s ease, transform .2s ease; }
-.social-icons .fa-github{ color:#fff; }
+.social-icons .fa-github{ color:#000; }
 .social-icons .fa-linkedin{ color:#0A66C2; }
 .social-icons .fa-whatsapp{ color:#25D366; }
 .social-icons a:hover i{ transform: translateY(-2px); }
-.social-icons a:hover .fa-github{ color:#BFBFBF; }
+.social-icons a:hover .fa-github{ color:#333; }
 .social-icons a:hover .fa-linkedin{ color:#004182; }
 .social-icons a:hover .fa-whatsapp{ color:#128C7E; }
-
-/* =========================
-   Seções (layout de página)
-========================= */
-/* cada seção ocupa a viewport (menos a navbar) */
-section{
-  min-height: calc(100vh - var(--nav-h));
-  display: flex;
-  align-items: center;
-  margin: 0;                 /* zera margens externas */
-  padding: 0;                /* sem padding no <section> */
-  scroll-margin-top: calc(var(--nav-h) + 4px); /* ancora perfeita */
-}
-
-/* respiro vai DENTRO do container de cada seção */
-section .container{ padding: 2rem 0; }
-
-/* INÍCIO: cor única e respiro maior */
-#inicio{
-  background-color: #10253a;   /* cor do fundo do início */
-  color: #fff;
-  margin-top: -1px;            /* elimina linha branca */
-  position: relative;
-}
-#inicio .container{ padding: 3rem 0; }
-
-/* garante que não cria faixa */
-#inicio::before{
-  content: "";
-  position: absolute;
-  top: -1px; left: 0; right: 0;
-  height: 1px;
-  background: #10253a;
-}
-
-/* evita que títulos empurrem o topo */
-section h1, section h2, section h3{ margin-top: 0; }
-
-/* imagens das seções não "estourarem" a altura */
-section img{
-  max-height: 70vh;
-  object-fit: cover;
-}
 
 /* =========================
    Contato + Rodapé (um bloco)
 ========================= */
 #contato{
-  background: #0f1216;        /* mantém escuro junto com o rodapé */
-  color: #fff;
   display: block;
 }
 #contato .contato-wrapper{
+  min-height: calc(100svh - var(--nav-h));
   min-height: calc(100vh - var(--nav-h));
   display: grid;
   grid-template-rows: auto 1fr auto;  /* título/form | espaço | rodapé */
@@ -143,10 +139,46 @@ footer a:hover{
 }
 
 /* =========================
+   Ajustes específicos da seção PROJETOS
+========================= */
+/* Deixa a seção crescer (não força altura de viewport) e alinha do topo */
+#projetos{
+  min-height: auto;
+  align-items: flex-start;
+}
+#projetos .container{
+  padding: 3rem 0;        /* respiro extra */
+}
+
+/* Botões dos cards em formato pílula (iguais) */
+#projetos .card .btn{
+  border-radius: 999px;   /* pílula */
+  padding: .65rem 1.2rem;
+  line-height: 1;
+}
+/* Mantém o tema escuro do botão Github */
+#projetos .card .btn-dark{
+  background-color: #222;
+  border-color: #222;
+}
+#projetos .card .btn-dark:hover{
+  background-color: #111;
+  border-color: #111;
+}
+
+/* Assegura que o bloco de botões fique no rodapé do card quando houver muito texto */
+#projetos .card .mt-auto{ margin-top: auto !important; }
+
+/* =========================
    Responsivo
 ========================= */
 @media (max-width: 992px){
   #contato .contato-wrapper{
     grid-template-rows: auto auto auto; /* deixa fluir no mobile */
   }
+  /* centraliza melhor a foto do herói no mobile */
+  #inicio .text-center img{ width: 80% !important; }
 }
+
+/* (Ajuste de contraste quando um elemento tiver .text-light dentro de seção clara) */
+.section-light .text-light{ color:#0f1216 !important; }
